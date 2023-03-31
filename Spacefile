@@ -13,3 +13,4 @@ micros:
       - /favicon-dark.png
       - /favicon.png
       - /favicon.ico
+      - /_app/*
