@@ -30,6 +30,6 @@ export const actions = {
     }
     await pastes.put(paste, paste.key, options);
 
-    throw redirect(307, `/share/${paste.slug}`);
+    throw redirect(303, `/share/${paste.slug}`);
   },
 } satisfies Actions;
