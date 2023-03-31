@@ -3,8 +3,10 @@
   import { page } from "$app/stores";
   import { dtf } from "$lib/time";
   import type { Paste } from "$lib/types";
+  import { Transition } from "@rgossiaux/svelte-headlessui";
   import {
     CalendarIcon,
+    CheckIcon,
     ClipboardCopyIcon,
     DocumentTextIcon,
     EyeIcon,
@@ -22,6 +24,8 @@
 
   let lang: any = null;
   let isModalOpen = false;
+  let copyLink = false;
+  let copyContent = false;
 
   $: paste = form?.paste || (data.paste as Paste);
   $: unlocked = form?.unlocked || !paste.passwordProtected;
@@ -92,7 +96,7 @@
                   "&": {
                     width: "100%",
                     maxWidth: "100%",
-                    height: "30rem",
+                    height: "35rem",
                   },
                 }}
                 readonly />
@@ -104,19 +108,54 @@
     <div class="p-4 flex items-center justify-center gap-x-6">
       <button
         type="button"
-        on:click={() => navigator.clipboard.writeText($page.url.href)}
-        class="rounded-full bg-indigo-200 p-2 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+        on:click={() => {
+          copyLink = true;
+          setTimeout(() => copyLink = false, 1200);
+          navigator.clipboard.writeText($page.url.href)
+        }}
+        class="relative rounded-full bg-indigo-200 p-2 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
         title="Copy Link">
+        <Transition
+          show={copyLink}
+          enter="transition-opacity duration-75"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="transition-opacity duration-150"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <div class="absolute left-0 right-0 top-0 bottom-0 z-10 text-center rounded-full bg-fuchsia-500">
+            <CheckIcon class="h-auto w-auto z-10 p-2 text-white" />
+          </div>
+        </Transition>
         <LinkIcon class="h-6 w-6" />
       </button>
 
       <button
         type="button"
-        on:click={() => navigator.clipboard.writeText(pasteContent)}
-        class="rounded-full bg-indigo-200 p-2 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+        on:click={() => {
+          copyContent = true;
+          setTimeout(() => copyContent = false, 1200);
+          navigator.clipboard.writeText(pasteContent)
+        }}
+        class="relative rounded-full bg-indigo-200 p-2 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
         title="Copy Content">
+        <Transition
+          show={copyContent}
+          enter="transition-opacity duration-75"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="transition-opacity duration-150"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <div class="absolute left-0 right-0 top-0 bottom-0 z-10 text-center rounded-full bg-fuchsia-500">
+            <CheckIcon class="h-auto w-auto z-10 p-2 text-white" />
+          </div>
+        </Transition>
         <ClipboardCopyIcon class="h-6 w-6" />
       </button>
+
     </div>
   </div>
 </div>

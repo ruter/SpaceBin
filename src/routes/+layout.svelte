@@ -34,7 +34,7 @@
   </main>
 
   <footer class="bg-white mt-auto">
-    <div class="mx-auto max-w-7xl py-6">
+    <div class="mx-auto max-w-7xl py-4">
       <div class="flex flex-col sm:flex-row items-center justify-center text-base text-gray-500">
         <span>© {new Date().getFullYear()} SpaceBin All rights reserved</span>
         <span class="hidden sm:block mx-1.5">|</span>
