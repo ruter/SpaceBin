@@ -1,0 +1,15 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+app_name: SpaceBin
+icon: ./static/icon.png
+micros:
+  - name: space-bin
+    src: .
+    engine: svelte-kit
+    primary: true
+    public_routes:
+      - /share/*
+      - /favicon.svg
+      - /favicon-dark.png
+      - /favicon.png
+      - /favicon.ico
