@@ -4,18 +4,16 @@ import { redirect } from "@sveltejs/kit";
 import type { Paste } from "$lib/types";
 import { nanoid } from "nanoid";
 
-// export const ssr = false;
-
 export const actions = {
   default: async ({ request }) => {
     const data = await request.formData();
 
     let paste = {
       key: nanoid(),
-      title: data.get("title")?.toString(),
+      title: data.get("title")?.toString() || "Untitled",
       description: data.get("description")?.toString(),
       syntax: data.get("syntax")?.toString(),
-      slug: nanoid(),
+      slug: nanoid(6),
       createdAt: Date.now(),
       expireTime: parseInt(data.get("expireTime")?.toString() || "0"),
       password: data.get("password")?.toString(),

@@ -10,3 +10,5 @@ export const calcMilliseconds = (time: number, dateType: string) => {
   const futureMilliseconds = date.getTime();
   return futureMilliseconds - currentMilliseconds;
 };
+
+export const dtf = (date: Date) => new Intl.DateTimeFormat('en-US', { dateStyle: 'long', timeStyle: 'short' }).format(date);

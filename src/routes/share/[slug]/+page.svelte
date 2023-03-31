@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { PageData, ActionData } from "./$types";
   import { page } from "$app/stores";
+  import { dtf } from "$lib/time";
   import type { Paste } from "$lib/types";
   import {
     CalendarIcon,
@@ -55,20 +56,23 @@
         <KeyIcon class="mr-1.5 h-4 w-4 text-white" />
         Unlock
       </button>
-      <div class="inline-flex items-center">
+      <div class="md:inline-flex items-center hidden">
         <div
           class="cursor-pointer inline-block h-8 w-8 mr-4 rounded-md ring-white bg-indigo-200"
-          title={paste.syntax || "Plaintext"}>
+          title={paste.syntax || "Plaintext"}
+        >
           <InformationCircleIcon class="p-1 text-indigo-600" />
         </div>
         <div
           class="cursor-pointer inline-block h-8 w-8 mr-4 rounded-md ring-white bg-indigo-200"
-          title={`Created at: ${new Date(paste.createdAt)}`}>
+          title={`Created at: ${dtf(new Date(paste.createdAt))}`}
+        >
           <CalendarIcon class="p-1 text-indigo-600" />
         </div>
         <div
           class="cursor-pointer inline-block h-8 w-8 mr-4 rounded-md ring-white bg-indigo-200"
-          title={`Views: ${paste.view}`}>
+          title={`Views: ${paste.view}`}
+        >
           <EyeIcon class="p-1 text-indigo-600" />
         </div>
       </div>
