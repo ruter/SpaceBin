@@ -1,5 +1,6 @@
 <script lang="ts">
   import CodeMirror from "svelte-codemirror-editor";
+  import { githubLight } from '@ddietr/codemirror-themes/github-light';
   import { DocumentAddIcon, CogIcon, CheckIcon } from "@rgossiaux/svelte-heroicons/outline";
   import {
     Listbox,
@@ -41,11 +42,15 @@
               <CodeMirror
                 bind:value
                 {lang}
+                theme={githubLight}
                 styles={{
                   "&": {
                     width: "100%",
                     maxWidth: "100%",
                     height: "25rem",
+                  },
+                  ".cm-content": {
+                    fontFamily: "'Fira Mono', monospace",
                   },
                 }} />
               <input type="hidden" name="content" bind:value />

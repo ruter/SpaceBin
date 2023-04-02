@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["InterVariable", ...defaultTheme.fontFamily.sans],
+        fira: ["Fira Mono", "monospace"]
       },
     },
   },

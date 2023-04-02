@@ -15,6 +15,7 @@
     LinkIcon,
   } from "@rgossiaux/svelte-heroicons/outline";
   import CodeMirror from "svelte-codemirror-editor";
+  import { githubLight } from '@ddietr/codemirror-themes/github-light';
   import PasswordModal from "$lib/components/PasswordModal.svelte";
   import { getSyntaxLang } from "$lib/options";
   import { onMount } from "svelte";
@@ -92,11 +93,15 @@
               <CodeMirror
                 bind:value={pasteContent}
                 {lang}
+                theme={githubLight}
                 styles={{
                   "&": {
                     width: "100%",
                     maxWidth: "100%",
                     height: "35rem",
+                  },
+                  ".cm-content": {
+                    fontFamily: "'Fira Mono', monospace",
                   },
                 }}
                 readonly />
