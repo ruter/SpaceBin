@@ -1,0 +1,23 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs></defs>
+  <g data-v-70b83f88="" fill="#333" class="iconlinesvg-g iconlinesvg" transform="matrix(2.500503, 0, 0, 2.500503, 9.143112, 208.958435)" style="">
+    <g class="tp-name">
+      <g transform="matrix(5.231893, 0, 0, 5.231893, -3.222017, -83.082878)" style="">
+        <g>
+          <g class="imagesvg">
+            <g>
+              <rect fill="#333" fill-opacity="0" stroke-width="2" x="0" y="0" width="38.02214757514802" height="38.02214757514802" class="image-rect"></rect>
+              <svg x="0" y="0" width="38.02214757514802" height="38.02214757514802" filtersec="colorsb2015101479" class="image-svg-svg primary" style="overflow: visible;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74.45000457763672 74.44999694824219">
+                  <title>SpaceBin</title>
+                  <path d="M25.72 51.44h48.73V0H25.72a25.72 25.72 0 0 0 0 51.44z" fill="#F73B95" opacity=".8"></path>
+                  <path d="M48.73 23H0v51.45h48.73a25.72 25.72 0 1 0 0-51.44z" fill="#F478B4" opacity=".8"></path>
+                </svg>
+              </svg>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
