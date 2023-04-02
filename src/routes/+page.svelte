@@ -1,6 +1,5 @@
 <script lang="ts">
   import CodeMirror from "svelte-codemirror-editor";
-  import { githubLight } from '@ddietr/codemirror-themes/github-light';
   import { DocumentAddIcon, CogIcon, CheckIcon } from "@rgossiaux/svelte-heroicons/outline";
   import {
     Listbox,
@@ -9,6 +8,7 @@
     ListboxOption,
   } from "@rgossiaux/svelte-headlessui";
   import { expirationOptions, syntaxOptions, getSyntaxLang } from "$lib/options";
+  import {tomorrow} from 'thememirror';
 
   let value = "";
   let lang: any = null;
@@ -42,7 +42,7 @@
               <CodeMirror
                 bind:value
                 {lang}
-                theme={githubLight}
+                theme={tomorrow}
                 styles={{
                   "&": {
                     width: "100%",

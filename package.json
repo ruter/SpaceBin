@@ -51,10 +51,10 @@
     "@codemirror/language-data": "^6.2.0",
     "@codemirror/state": "^6.2.0",
     "@codemirror/view": "^6.9.3",
-    "@ddietr/codemirror-themes": "^1.4.0",
     "@lezer/common": "^1.0.2",
     "codemirror": "^6.0.1",
     "deta": "^1.1.0",
-    "svelte-codemirror-editor": "^1.1.0"
+    "svelte-codemirror-editor": "^1.1.0",
+    "thememirror": "^2.0.1"
   }
 }

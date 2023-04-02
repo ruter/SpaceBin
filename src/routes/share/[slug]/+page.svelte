@@ -3,6 +3,7 @@
   import { page } from "$app/stores";
   import { dtf } from "$lib/time";
   import type { Paste } from "$lib/types";
+  import {tomorrow} from 'thememirror';
   import { Transition } from "@rgossiaux/svelte-headlessui";
   import {
     CalendarIcon,
@@ -15,7 +16,6 @@
     LinkIcon,
   } from "@rgossiaux/svelte-heroicons/outline";
   import CodeMirror from "svelte-codemirror-editor";
-  import { githubLight } from '@ddietr/codemirror-themes/github-light';
   import PasswordModal from "$lib/components/PasswordModal.svelte";
   import { getSyntaxLang } from "$lib/options";
   import { onMount } from "svelte";
@@ -93,7 +93,7 @@
               <CodeMirror
                 bind:value={pasteContent}
                 {lang}
-                theme={githubLight}
+                theme={tomorrow}
                 styles={{
                   "&": {
                     width: "100%",
