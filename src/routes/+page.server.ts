@@ -1,5 +1,5 @@
 import type { Actions } from "./$types";
-import { pastes } from "$lib/server/db";
+import { getPasteDB } from "$lib/server/db";
 import { redirect } from "@sveltejs/kit";
 import type { Paste } from "$lib/types";
 import { nanoid } from "nanoid";
@@ -26,7 +26,7 @@ export const actions = {
     if (!!paste.expireTime) {
       options = { expireIn: Math.round(paste.expireTime / 1000) };
     }
-    await pastes.put(paste, paste.key, options);
+    await getPasteDB().put(paste, paste.key, options);
 
     throw redirect(303, `/share/${paste.slug}`);
   },

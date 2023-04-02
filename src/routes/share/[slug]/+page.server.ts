@@ -1,10 +1,10 @@
 import type { PageServerLoad, Actions } from "./$types";
-import { pastes } from "$lib/server/db";
+import { getPasteDB } from "$lib/server/db";
 import { error, fail } from "@sveltejs/kit";
 import type { Paste, Password, PasteResponse } from "$lib/types";
 
 export const load = (async (event) => {
-  const res = await pastes.fetch({ slug: event.params.slug }, { limit: 1 });
+  const res = await getPasteDB().fetch({ slug: event.params.slug }, { limit: 1 });
   if (!res.count) {
     throw error(404, { message: "This paste has been expired!" });
   }
@@ -32,13 +32,9 @@ export const actions = {
       password: data.get("password")?.toString(),
     } as Password;
 
-    // TODO: filter by expireTime
-    const res = await pastes.fetch(password, { limit: 1 });
+    const res = await getPasteDB().fetch(password, { limit: 1 });
     if (!res.count) {
       return fail(400, { key: password.key, incorrect: true });
-    }
-    if (!res.count) {
-      throw error(404, { message: "This paste has been expired!" });
     }
 
     const paste = res.items[0] as Paste;
