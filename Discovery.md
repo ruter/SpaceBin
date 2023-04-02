@@ -1,7 +1,7 @@
 ---
 title: "SpaceBin"
 tagline: "Paste your text, then share with others."
-theme_color: "#fffffe"
+theme_color: "#f478b4"
 git: "https://github.com/ruter/SpaceBin"
 homepage: "https://deta.space/discovery/@ruter/spacebin"
 ---
