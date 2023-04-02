@@ -8,7 +8,7 @@ export type Paste = {
   password?: string;
   passwordProtected: boolean;
   content: string;
-  view?: number;
+  view: number;
 };
 
 export type Password = {
