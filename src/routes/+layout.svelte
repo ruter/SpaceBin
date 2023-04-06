@@ -1,7 +1,12 @@
 <script lang="ts">
   import "../app.css";
   import { DocumentAddIcon } from "@rgossiaux/svelte-heroicons/outline";
+  import { page } from '$app/stores';
 </script>
+
+<svelte:head>
+  <title>{$page.data.title}</title>
+</svelte:head>
 
 <div class="flex flex-col min-h-full">
   <nav class="bg-white">

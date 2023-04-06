@@ -2,6 +2,10 @@
   import { page } from "$app/stores";
 </script>
 
+<svelte:head>
+  <title>{$page.status} | SpaceBin</title>
+</svelte:head>
+
 <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8 sm:rounded-lg">
   <div class="text-center">
     <p class="text-base font-semibold text-fuchsia-500">{$page.status}</p>

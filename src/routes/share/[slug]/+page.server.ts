@@ -29,6 +29,7 @@ export const load = (async (event) => {
 
   return {
     paste,
+    title: `${paste.title} | SpaceBin`,
   };
 }) satisfies PageServerLoad;
 

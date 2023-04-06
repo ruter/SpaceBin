@@ -1,8 +1,14 @@
-import type { Actions } from "./$types";
+import type { Actions, PageServerLoad } from "./$types";
 import { getPasteDB } from "$lib/server/db";
 import { redirect } from "@sveltejs/kit";
 import type { Paste } from "$lib/types";
 import { nanoid } from "nanoid";
+
+export const load = (async (event) => {
+  return {
+    title: "SpaceBin",
+  };
+}) satisfies PageServerLoad;
 
 export const actions = {
   default: async ({ request }) => {
